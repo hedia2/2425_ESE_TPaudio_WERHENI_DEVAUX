@@ -11,3 +11,11 @@ TP1
 
 ![image](https://github.com/user-attachments/assets/03030ea0-ef5c-467d-bea4-181019a43e97)
 
+
+Faites fonctionner le shell :
+(a) Dans une tâche
+
+![image](https://github.com/user-attachments/assets/ffd3ea6c-5d05-4431-8cc9-a1baa1fdae2e)
+
+
+
