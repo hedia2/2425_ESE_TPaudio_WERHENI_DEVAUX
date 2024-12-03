@@ -1,0 +1,7 @@
+../Core/Src/shell.c:11:12:sh_pins	24	static
+../Core/Src/shell.c:16:12:sh_status	32	static
+../Core/Src/shell.c:23:12:sh_led	32	static
+../Core/Src/shell.c:52:12:sh_help	48	static
+../Core/Src/shell.c:92:6:shell_init	24	static
+../Core/Src/shell.c:107:12:shell_exec	64	static
+../Core/Src/shell.c:137:5:shell_run	32	static

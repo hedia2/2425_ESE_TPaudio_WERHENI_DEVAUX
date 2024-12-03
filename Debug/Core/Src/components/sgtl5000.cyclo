@@ -1,0 +1,2 @@
+../Core/Src/components/sgtl5000.c:6:26:SGTL5000_WriteReg	1
+../Core/Src/components/sgtl5000.c:21:19:SGTL5000_Init	11

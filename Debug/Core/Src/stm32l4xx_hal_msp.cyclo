@@ -1,0 +1,2 @@
+../Core/Src/stm32l4xx_hal_msp.c:68:6:HAL_MspInit	1
+../Core/Src/stm32l4xx_hal_msp.c:94:1:__io_putchar	1
