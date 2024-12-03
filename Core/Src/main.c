@@ -19,6 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
+#include "spi.h"
 #include "usart.h"
 #include "gpio.h"
 
@@ -50,6 +51,48 @@ int fonction(h_shell_t * h_shell, int argc, char ** argv)
 
 	return 0;
 }
+
+#define MCP23S17_ADDR      0x40
+#define IODIRA_REG         0x00
+#define GPIOA_REG          0x09
+
+typedef struct {
+    SPI_HandleTypeDef* hspi;
+    GPIO_TypeDef* cs_port;
+    uint16_t cs_pin;
+} MCP23S17_Handle;
+
+void MCP23S17_WriteReg(MCP23S17_Handle* handle, uint8_t reg, uint8_t data) {
+    uint8_t spi_buf[3];
+
+    // Prépare les données à envoyer
+    spi_buf[0] = MCP23S17_ADDR;    // Adresse + Write
+    spi_buf[1] = reg;              // Registre
+    spi_buf[2] = data;             // Données
+
+    // CS bas pour début transmission
+    HAL_GPIO_WritePin(handle->cs_port, handle->cs_pin, GPIO_PIN_RESET);
+
+    // Envoi via SPI
+    HAL_SPI_Transmit(handle->hspi, spi_buf, 3, HAL_MAX_DELAY);
+
+    // CS haut pour fin transmission
+    HAL_GPIO_WritePin(handle->cs_port, handle->cs_pin, GPIO_PIN_SET);
+}
+
+void MCP23S17_Init(MCP23S17_Handle* handle) {
+    // Configure tout le port A en sorties
+    MCP23S17_WriteReg(handle, IODIRA_REG, 0x00);
+}
+
+void SPI_Write(uint8_t data) {
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_RESET);
+    HAL_SPI_Transmit(&hspi3, &data, 1, HAL_MAX_DELAY);
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_SET);
+
+    HAL_Delay(10);
+}
+
 
 /* USER CODE END PD */
 
@@ -129,14 +172,15 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART2_UART_Init();
+  MX_SPI3_Init();
   /* USER CODE BEGIN 2 */
   char msg[] = "USART2 Test OK\r\n";
 
-    h_shell.drv.receive = drv_uart1_receive;
-  	h_shell.drv.transmit = drv_uart1_transmit;
+    //h_shell.drv.receive = drv_uart1_receive;
+  	//h_shell.drv.transmit = drv_uart1_transmit;
 
-  	shell_init(&h_shell);
-  	shell_add(&h_shell, 'f', fonction, "Une fonction inutile");
+  	//shell_init(&h_shell);
+  	//shell_add(&h_shell, 'f', fonction, "Une fonction inutile");
   	//shell_run(&h_shell);
 
   	// Créer une tâche FreeRTOS
@@ -152,6 +196,19 @@ int main(void)
   	    // Démarrer le scheduler
   	    vTaskStartScheduler();
 
+
+  	  // Configuration de la structure
+  	      MCP23S17_Handle gpio_exp = {
+  	          .hspi = &hspi3,
+  	          .cs_port = GPIOB,
+  	          .cs_pin = GPIO_PIN_7
+  	      };
+
+  	      // Initialisation du MCP23S17
+  	      //MCP23S17_Init(&gpio_exp);
+
+  	      uint8_t led = 0x01;
+
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in cmsis_os2.c) */
@@ -166,6 +223,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  MCP23S17_WriteReg(&gpio_exp, GPIOA_REG, 0x01);
+	  HAL_Delay(500);
+	  MCP23S17_WriteReg(&gpio_exp, GPIOA_REG, 0x00);
+
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
