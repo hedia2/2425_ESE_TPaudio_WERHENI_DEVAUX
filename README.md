@@ -48,7 +48,20 @@ Le MCP23S17 est un expander GPIO 16 bits qui communique avec un microcontrôleur
 
 ## SPI de STM32
 
-Nous allons utulisé le SPI3 telque la pin MISO connecté au pin PC11 de la carte STM32 ,SCK connecté au pin PC10, MOSI connecté au pin PB5,CS connecté au pin PB7,RESET connecté au pin PA0 
+Nous allons utiliser l'interface SPI3 de la carte STM32 pour communiquer avec le composant MCP23S17. Les connexions des broches sont établies comme suit :
+
+*MISO (Master In Slave Out) est connecté à la broche PC11 de la carte STM32.
+
+*SCK (horloge SPI) est connecté à la broche PC10.
+
+*MOSI (Master Out Slave In) est connecté à la broche PB5.
+
+*CS (Chip Select) est connecté à la broche PB7.
+
+*RESET est connecté à la broche PA0.
+
+Ces connexions permettent d'assurer la communication SPI entre le microcontrôleur et l'expander GPIO, en respectant les lignes de données et de contrôle nécessaires pour le bon fonctionnement du protocole SPI.
+
 ![image](https://github.com/user-attachments/assets/741566ed-9f08-4424-b18b-c943a18c29df)
 
 
