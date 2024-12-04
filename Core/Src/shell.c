@@ -9,8 +9,10 @@
 
 
 static int sh_pins(h_shell_t * h_shell, int argc, char ** argv) {
-	MCP23S17_Init_And_Test(&hspi3);
-	//MCP23S17_ToggleAllPins(&hspi3);
+
+
+	MCP23S17_Init();
+	MCP23S17_WriteRegister(MCP23S17_GPIOA, 0x00);
 	return 0;
 }
 static int sh_status(h_shell_t * h_shell, int argc, char ** argv) {

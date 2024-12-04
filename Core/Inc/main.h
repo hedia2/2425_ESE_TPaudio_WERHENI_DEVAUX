@@ -66,6 +66,8 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define B1_Pin GPIO_PIN_13
 #define B1_GPIO_Port GPIOC
+#define RESET_Vu_Pin GPIO_PIN_0
+#define RESET_Vu_GPIO_Port GPIOA
 #define USART_TX_Pin GPIO_PIN_2
 #define USART_TX_GPIO_Port GPIOA
 #define USART_RX_Pin GPIO_PIN_3
@@ -83,6 +85,8 @@ void Error_Handler(void);
 
 /* USER CODE BEGIN Private defines */
 
+#define CODEC_ADDR 0x14
+#define CODEC_ID_REG 0x0000
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

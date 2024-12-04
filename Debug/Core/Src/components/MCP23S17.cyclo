@@ -1,3 +1,2 @@
-../Core/Src/components/MCP23S17.c:5:19:MCP23S17_WriteRegister	1
-../Core/Src/components/MCP23S17.c:19:6:MCP23S17_ToggleAllPins	1
-../Core/Src/components/MCP23S17.c:40:6:MCP23S17_Init_And_Test	1
+../Core/Src/components/MCP23S17.c:6:19:MCP23S17_WriteRegister	1
+../Core/Src/components/MCP23S17.c:21:6:MCP23S17_Init	1
