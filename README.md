@@ -35,6 +35,22 @@ Nous allons définir une fonction de tâche FreeRTOS appelée TAskFonction, qui 
 
 ## (c) Avec un driver sous forme de structure:
 
+## 2.Le GPIO Expander et le VU-Metre
+
+## 2.1 Configuration
+
+## la référence du GPIO Expander
+Le MCP23S17 est un expander GPIO 16 bits qui communique avec un microcontrôleur via une interface SPI. Il permet d'ajouter des entrées/sorties numériques supplémentaires au microcontrôleur lorsqu'il manque de GPIO disponibles. Voici un résumé de ses principales caractéristiques :
+
+1.Interface SPI : Il utilise une communication série rapide pour échanger des données avec le microcontrôleur.
+2.16 broches de GPIO : Les broches peuvent être configurées individuellement comme entrées ou sorties.
+3.Configuration par registres : Vous devez écrire dans des registres spécifiques, tels que IODIRA et IODIRB, pour définir le mode (entrée/sortie) des broches.
+
+## SPI de STM32
+
+Nous allons utulisé le SPI3 telque la pin MISO connecté au pin PC11 de la carte STM32 ,SCK connecté au pin PC10, MOSI connecté au pin PB5,CS connecté au pin PB7,RESET connecté au pin PA0 
+![image](https://github.com/user-attachments/assets/741566ed-9f08-4424-b18b-c943a18c29df)
+
 
 ## 3.2 Configuration du CODEC par l’I2C
 
