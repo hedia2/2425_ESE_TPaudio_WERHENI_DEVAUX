@@ -20,13 +20,13 @@ Nous allons utulisé :
 
 ## Activez FreeRTOS en mode CMSIS V1.
 
-reeRTOS, un système d'exploitation temps réel, est activé et peut être personnalisé via des options comme les tâches, sémaphores et mutexes. L'interface facilite la configuration matérielle et logicielle avant de générer le code d'initialisation pour le projet.
+FreeRTOS, un système d'exploitation temps réel, est activé et peut être personnalisé via des options comme les tâches, sémaphores et mutexes. L'interface facilite la configuration matérielle et logicielle avant de générer le code d'initialisation pour le projet.
 
 ![image](https://github.com/user-attachments/assets/bac0f2a7-7444-40aa-9f6c-9b0098be24a7)
 
 ## Faites fonctionner le shell :
 ## (a) Dans une tâche
-
+Nous allons définir une fonction de tâche FreeRTOS appelée TAskFonction, qui est conçue pour s'exécuter en boucle infinie (for (;;)). À chaque itération, elle appelle la fonction shell_run(&h_shell), qui semble gérer l'exécution d'un shell ou d'une interface de commande interactive. Cette tâche est typiquement utilisée pour permettre un fonctionnement continu du shell dans un système temps réel.
 
 ![image](https://github.com/user-attachments/assets/03030ea0-ef5c-467d-bea4-181019a43e97)
 
