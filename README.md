@@ -2,6 +2,8 @@
 
 ## 1.Démarrage
 ## Testez la LED LD2
+
+
 ![image](https://github.com/user-attachments/assets/32837cbc-2ad0-4117-967e-1fc069c35f44)
 
 ## Testez l’USART2 connecté à la STLink interne.
@@ -21,6 +23,16 @@
 ## (b) Faites fonctionner le shell :
 
 ![image](https://github.com/user-attachments/assets/ffd3ea6c-5d05-4431-8cc9-a1baa1fdae2e)
+
+## 3.2 Configuration du CODEC par l’I2C
+
+![image](https://github.com/user-attachments/assets/f6de6307-a58e-4941-812d-c7960a20d894)
+
+## 3.3 Signaux I2S
+
+![image](https://github.com/user-attachments/assets/3e969c36-447b-4556-9333-4534a2a5d881)
+
+
 
 
 
