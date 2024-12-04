@@ -20,17 +20,21 @@ Nous allons utulisé :
 
 ## Activez FreeRTOS en mode CMSIS V1.
 
+reeRTOS, un système d'exploitation temps réel, est activé et peut être personnalisé via des options comme les tâches, sémaphores et mutexes. L'interface facilite la configuration matérielle et logicielle avant de générer le code d'initialisation pour le projet.
+
 ![image](https://github.com/user-attachments/assets/bac0f2a7-7444-40aa-9f6c-9b0098be24a7)
 
 ## Faites fonctionner le shell :
 ## (a) Dans une tâche
 
+
 ![image](https://github.com/user-attachments/assets/03030ea0-ef5c-467d-bea4-181019a43e97)
 
 
-## (b) Faites fonctionner le shell :
+## (b) En mode interruption, :
 
-![image](https://github.com/user-attachments/assets/ffd3ea6c-5d05-4431-8cc9-a1baa1fdae2e)
+## (c) Avec un driver sous forme de structure:
+
 
 ## 3.2 Configuration du CODEC par l’I2C
 
