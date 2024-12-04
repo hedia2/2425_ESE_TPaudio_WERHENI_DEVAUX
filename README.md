@@ -11,6 +11,9 @@ La fonction HAL_GPIO_TogglePin() inverse l'état logique de la broche associée 
 
 ![image](https://github.com/user-attachments/assets/7bcba097-c0d1-4368-b70a-1f43a23528af)
 
+Nous allons utulisé :
+* __io_putchar() : Redirige les sorties de printf() vers l'UART, permettant d'envoyer des caractères un par un.
+* HAL_UART_Transmit() avec délai : Envoie un message ou des données via l'UART, suivi d'une pause, pour des transmissions régulières ou périodiques.
 
 
 ![image](https://github.com/user-attachments/assets/f66172ae-f3fb-43ac-983b-8ba6c4e167b1)
