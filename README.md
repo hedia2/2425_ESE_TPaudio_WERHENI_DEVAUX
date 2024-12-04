@@ -3,6 +3,7 @@
 ## 1.Démarrage
 ## Testez la LED LD2
 
+La fonction HAL_GPIO_TogglePin() inverse l'état logique de la broche associée à la LED (passant de l'état haut à bas, ou inversement), ce qui allume ou éteint la LED. Ensuite, la fonction HAL_Delay(500) introduit un délai de 500 millisecondes pour créer une pause visible avant de répéter l'opération. 
 
 ![image](https://github.com/user-attachments/assets/32837cbc-2ad0-4117-967e-1fc069c35f44)
 
