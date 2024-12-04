@@ -97,6 +97,8 @@ aprés Nous allons déclaré la fonction MCP23S17_Write permet d'envoyer une com
 
 ## 3.3 Signaux I2S
 
+Nous allons déclaré La fonction remplir() est d'abord appelée pour préparer les données à transmettre. Ensuite, HAL_SAI_Transmit_DMA lance la transmission des données depuis le tableau tx_buffer via le périphérique SAI en utilisant le mode DMA. Simultanément, HAL_SAI_Receive_DMA démarre la réception des données dans le tableau rx_buffer en mode DMA. Ces deux opérations permettent de gérer efficacement la transmission et la réception de données audio en parallèle.
+
 ![image](https://github.com/user-attachments/assets/3e969c36-447b-4556-9333-4534a2a5d881)
 
 
