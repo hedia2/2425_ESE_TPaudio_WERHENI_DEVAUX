@@ -69,8 +69,11 @@ Ces connexions permettent d'assurer la communication SPI entre le microcontrôle
 L'image ci-dessous montre la configuration de l'interface SPI3 pour la carte STM32L476RGTx dans STM32CubeMX. Le mode SPI3 est configuré en tant que maître full-duplex avec le signal NSS (Chip Select) désactivé.
 
 *Le frame format est défini sur Motorola, et le data size est de 8 bits.
+
 *Le premier bit est transmis MSB First (Most Significant Bit First).
+
 *Pour la configuration de l'horloge, la fréquence de prescaler est fixée à 16, et la vitesse de transmission est de 5.0 Mbits/s.
+
 *La polarité de l'horloge (CPOL) est Low, et la phase de l'horloge (CPHA) est définie sur 1 Edge.
 
 
