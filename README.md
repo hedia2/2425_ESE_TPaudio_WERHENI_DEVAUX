@@ -89,6 +89,8 @@ Nous allons déclaré la fonction MCP23S17_Init() qui permet de :
 
 *La commande MCP23S17_Write(0x01, 0x00); écrit la valeur 0x00 dans le registre IODIRB du MCP23S17. Le registre IODIRB contrôle la direction des pins du port B (par opposition au port A contrôlé par le registre IODIRA). En écrivant 0x00, elle configure toutes les pins du port B du MCP23S17 en mode sortie.
 
+aprés Nous allons déclaré la fonction MCP23S17_Write permet d'envoyer une commande d'écriture via SPI pour configurer un registre du MCP23S17. Elle commence par préparer un tableau contenant le code d'écriture, l'adresse du registre et les données à écrire. Ensuite, elle active le signal Chip Select (CS) en le mettant à l'état bas, puis transmet les données via la fonction HAL_SPI_Transmit. 
+
 ## 3.2 Configuration du CODEC par l’I2C
 
 ![image](https://github.com/user-attachments/assets/f6de6307-a58e-4941-812d-c7960a20d894)
