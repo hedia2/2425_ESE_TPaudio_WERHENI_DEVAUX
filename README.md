@@ -9,6 +9,10 @@ La fonction HAL_GPIO_TogglePin() inverse l'état logique de la broche associée 
 
 ## Testez l’USART2 connecté à la STLink interne.
 
+![image](https://github.com/user-attachments/assets/7bcba097-c0d1-4368-b70a-1f43a23528af)
+
+
+
 ![image](https://github.com/user-attachments/assets/f66172ae-f3fb-43ac-983b-8ba6c4e167b1)
 
 ## Activez FreeRTOS en mode CMSIS V1.
