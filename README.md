@@ -79,7 +79,15 @@ L'image ci-dessous montre la configuration de l'interface SPI3 pour la carte STM
 
 ![image](https://github.com/user-attachments/assets/d33c21e2-c221-485b-920e-ed8516f2750a)
 
+## 2.2 Tests
 
+Nous allons déclaré la fonction MCP23S17_Init() qui permet de :
+
+*renitialisation de pin Reset 
+
+*La commande MCP23S17_Write(0x00, 0x00); configure tous les pins du MCP23S17 comme sorties. Elle écrit la valeur 0x00 dans le registre IODIRA, ce qui définit chaque pin en mode sortie. 
+
+*La commande MCP23S17_Write(0x01, 0x00); écrit la valeur 0x00 dans le registre IODIRB du MCP23S17. Le registre IODIRB contrôle la direction des pins du port B (par opposition au port A contrôlé par le registre IODIRA). En écrivant 0x00, elle configure toutes les pins du port B du MCP23S17 en mode sortie.
 
 ## 3.2 Configuration du CODEC par l’I2C
 
