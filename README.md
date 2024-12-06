@@ -81,6 +81,7 @@ L'image ci-dessous montre la configuration de l'interface SPI3 pour la carte STM
 
 ## 2.2 Tests
 
+## 1.Faites clignoter une ou plusieurs LED
 Nous allons déclaré la fonction MCP23S17_Init() qui permet de :
 
 *renitialisation de pin Reset 
@@ -91,6 +92,35 @@ Nous allons déclaré la fonction MCP23S17_Init() qui permet de :
 
 aprés Nous allons déclaré la fonction MCP23S17_Write permet d'envoyer une commande d'écriture via SPI pour configurer un registre du MCP23S17. Elle commence par préparer un tableau contenant le code d'écriture, l'adresse du registre et les données à écrire. Ensuite, elle active le signal Chip Select (CS) en le mettant à l'état bas, puis transmet les données via la fonction HAL_SPI_Transmit. 
 
+## 2.un chenillard 
+
+```
+void chenillard(void) {
+    // Supposons que vous avez 8 LEDs (A0 à A7 sur le MCP23S17)
+    for (int i = 0; i < 8; i++) {
+        // Allumer la LED correspondante (i)
+        MCP23S17_Write(0x12, ~(1 << i)); // Éteindre toutes les autres LEDs
+        MCP23S17_Write(0x13, ~(1 << i));
+        printf("LED %d allumée\r\n", i + 1);
+        HAL_Delay(100); // Attendre 100 ms
+
+        // Éteindre la LED actuelle avant de passer à la suivante
+        MCP23S17_Write(0x12, 0xFF); // Éteindre toutes les LEDs
+    }
+}
+```
+1.Une boucle for est utilisée pour parcourir les indices de 0 à 7, correspondant aux 8 LEDs.
+
+2.À chaque itération :
+-Une LED spécifique est allumée en écrivant un masque binaire inversé ~(1 << i) dans les registres 0x12 et 0x13 du MCP23S17, ce qui assure que seule la LED de l'indice courant s'allume, tandis que les autres sont éteintes.
+
+-Un message est affiché dans la console (printf) pour indiquer quelle LED est actuellement allumée.
+
+-La fonction attend 100 millisecondes (HAL_Delay(100)) avant de passer à l'étape suivante.
+
+3.Après avoir allumé la LED, la fonction éteint toutes les LEDs en écrivant la valeur 0xFF dans le registre 0x12 avant de passer à l'itération suivante. Cela garantit qu'aucune LED ne reste allumée lorsqu'une nouvelle s'allume.
+
+Ce processus continue jusqu'à ce que toutes les LEDs aient été successivement allumées,
 
 ## 3 Le CODEC Audio SGTL5000
 
