@@ -91,16 +91,38 @@ Nous allons déclaré la fonction MCP23S17_Init() qui permet de :
 
 aprés Nous allons déclaré la fonction MCP23S17_Write permet d'envoyer une commande d'écriture via SPI pour configurer un registre du MCP23S17. Elle commence par préparer un tableau contenant le code d'écriture, l'adresse du registre et les données à écrire. Ensuite, elle active le signal Chip Select (CS) en le mettant à l'état bas, puis transmet les données via la fonction HAL_SPI_Transmit. 
 
-## 3.2 Configuration du CODEC par l’I2C
 
+## 3 Le CODEC Audio SGTL5000
+
+### 3.# Configuration préalables
+Commençons par configurer l'I2C et l'I2S dans l'IOC afin de pouvoir utilisé le Codec. De plus, on Crée une paire de fichier sgtl5000.c / sgtl5000.h, ainsi qu'une fonction d'initialisation du codec.
+### 3.2 Configuration du CODEC par l’I2C
+On commence par récupérer l'adresse du codec sur le bus I2C avec la fonction suivante: 
+```
+uint16_t getCHIP_ID(uint8_t reg, uint8_t I2C_addr)
+{
+   uint16_t data = 0;
+   HAL_StatusTypeDef status;
+
+   status = HAL_I2C_Mem_Read(&hi2c2, I2C_addr, reg, I2C_MEMADD_SIZE_8BIT, &data, 2, HAL_MAX_DELAY);
+   if (status != HAL_OK){
+       return -1;
+   }
+   return data;
+}
+```
 ![image](https://github.com/user-attachments/assets/f6de6307-a58e-4941-812d-c7960a20d894)
 
-## 3.3 Signaux I2S
+### 3.3 Signaux I2S
 
-Nous allons déclaré La fonction remplir() est d'abord appelée pour préparer les données à transmettre. Ensuite, HAL_SAI_Transmit_DMA lance la transmission des données depuis le tableau tx_buffer via le périphérique SAI en utilisant le mode DMA. Simultanément, HAL_SAI_Receive_DMA démarre la réception des données dans le tableau rx_buffer en mode DMA. Ces deux opérations permettent de gérer efficacement la transmission et la réception de données audio en parallèle.
+Nous allons déclaré La fonction `remplir()` est d'abord appelée pour préparer les données à transmettre. Ensuite, `HAL_SAI_Transmit_DMA` lance la transmission des données depuis le tableau tx_buffer via le périphérique SAI en utilisant le mode DMA. Simultanément, HAL_SAI_Receive_DMA démarre la réception des données dans le tableau rx_buffer en mode DMA. Ces deux opérations permettent de gérer efficacement la transmission et la réception de données audio en parallèle.
 
 ![image](https://github.com/user-attachments/assets/3e969c36-447b-4556-9333-4534a2a5d881)
 
+### 3.4 Génération de signal audio
+
+1. Générez un signal triangulaire.
+2. Vérifier à l’oscilloscope, montrez à l’enseignant.
 
 
 
