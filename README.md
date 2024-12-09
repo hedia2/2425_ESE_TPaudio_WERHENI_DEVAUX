@@ -35,6 +35,13 @@ Nous allons définir une fonction de tâche FreeRTOS appelée TAskFonction, qui 
 
 ## (c) Avec un driver sous forme de structure:
 
+On utilise un driver pour faire marché le shell, plus particulierement pour la transmission et la réception de donnée par UART (UART2 intégré à la ST-LINK). Ci-dessous les fonction principales du driver (vous pouvez retrouver le code complet dans la paire de fichier drv_uart1.h/drv_uart1.c):
+```
+uint8_t drv_uart2_receive(char * pData, uint16_t size);
+uint8_t drv_uart2_transmit(const char * pData, uint16_t size);
+```
+On utilise également une structure de donnée pour l'utilisation du shell (dans laquelle est défini notament les données a envoyées et reçues). Le code complet de la struture ` h_shell_struct;` est disponible dans le fichier `shell.h`.
+
 ## 2.Le GPIO Expander et le VU-Metre
 
 ## 2.1 Configuration
