@@ -24,3 +24,17 @@ void MCP23S17_Init()
 	MCP23S17_WriteRegister(IODIRA, CONFIG);
 	MCP23S17_WriteRegister(IODIRB, CONFIG);
 }
+
+void MCP23S17_Chenillard(void) {
+    //
+    for (int i = 0; i < 8; i++) {
+
+    	MCP23S17_WriteRegister(0x12, ~(1 << i));
+    	MCP23S17_WriteRegister(0x13, ~(1 << i));
+        printf("LED %d allumée\r\n", i + 1);
+        HAL_Delay(100);
+
+
+        MCP23S17_WriteRegister(0x12, 0xFF);
+    }
+}

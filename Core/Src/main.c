@@ -65,17 +65,19 @@ void MX_FREERTOS_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-uint8_t getCHIP_ID(uint8_t reg, uint8_t I2C_addr)
+uint16_t getCHIP_ID(uint8_t reg, uint8_t I2C_addr)
 {
-   uint8_t data = 0;
+   uint16_t data = 0;
    HAL_StatusTypeDef status;
 
-   status = HAL_I2C_Mem_Read(&hi2c2, I2C_addr, reg, I2C_MEMADD_SIZE_8BIT, &data, 1, HAL_MAX_DELAY);
+   status = HAL_I2C_Mem_Read(&hi2c2, I2C_addr, reg, I2C_MEMADD_SIZE_8BIT, &data, 2, HAL_MAX_DELAY);
    if (status != HAL_OK){
        return -1;
    }
    return data;
 }
+
+
 
 /* USER CODE END 0 */
 
@@ -124,19 +126,21 @@ int main(void)
 	h_shell.drv.transmit = drv_uart2_transmit;
 
 	MCP23S17_Init();
-	MCP23S17_WriteRegister(MCP23S17_GPIOA, 0x00);
+	//MCP23S17_WriteRegister(MCP23S17_GPIOA, 0x00);
 
-	uint8_t chip_ID = getCHIP_ID(CODEC_ID_REG, CODEC_ADDR);;
-	// CHIP ID = 160
+	uint16_t chip_ID = getCHIP_ID(CODEC_ID_REG, CODEC_ADDR);
+	// CHIP ID = 0x11a0
+
+	//HAL_SAI_Receive_DMA(hsai, pData, Size);
 	shell_init(&h_shell);
 	shell_run(&h_shell);
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in cmsis_os2.c) */
-  MX_FREERTOS_Init();
+  //MX_FREERTOS_Init();
 
   /* Start scheduler */
-  osKernelStart();
+  //osKernelStart();
 
   /* We should never get here as control is now taken by the scheduler */
 
@@ -144,6 +148,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 	while (1)
 	{
+		MCP23S17_Chenillard();
 		printf("Toggle Led... \r\n");
 		HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
 		HAL_Delay(1000);
