@@ -19,6 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
+#include "dac.h"
 #include "dma.h"
 #include "i2c.h"
 #include "sai.h"
@@ -29,6 +30,9 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "components/MCP23S17.h"
+#include "components/wave_generator.h"
+#include "components/numeric_bypass.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -67,14 +71,14 @@ void MX_FREERTOS_Init(void);
 
 uint16_t getCHIP_ID(uint8_t reg, uint8_t I2C_addr)
 {
-   uint16_t data = 0;
-   HAL_StatusTypeDef status;
+	uint16_t data = 0;
+	HAL_StatusTypeDef status;
 
-   status = HAL_I2C_Mem_Read(&hi2c2, I2C_addr, reg, I2C_MEMADD_SIZE_8BIT, &data, 2, HAL_MAX_DELAY);
-   if (status != HAL_OK){
-       return -1;
-   }
-   return data;
+	status = HAL_I2C_Mem_Read(&hi2c2, I2C_addr, reg, I2C_MEMADD_SIZE_8BIT, &data, 2, HAL_MAX_DELAY);
+	if (status != HAL_OK){
+		return -1;
+	}
+	return data;
 }
 
 
@@ -118,6 +122,7 @@ int main(void)
   MX_SPI3_Init();
   MX_I2C2_Init();
   MX_SAI2_Init();
+  MX_DAC1_Init();
   /* USER CODE BEGIN 2 */
 
 	__HAL_SAI_ENABLE(&hsai_BlockA2);
@@ -126,21 +131,39 @@ int main(void)
 	h_shell.drv.transmit = drv_uart2_transmit;
 
 	MCP23S17_Init();
-	//MCP23S17_WriteRegister(MCP23S17_GPIOA, 0x00);
+	Triangle_Wave_Start();
+
+	//TODO: Ajouter la config du DAC et ADC !
+	/*
+	 if(Bypass_Init(&hadc1, &hdac, DAC_CHANNEL_1) != HAL_OK)
+	{
+		Error_Handler();
+	}
+
+	if(Bypass_Start() != HAL_OK)
+	{
+		Error_Handler();
+	}
+	 */
+
+
 
 	uint16_t chip_ID = getCHIP_ID(CODEC_ID_REG, CODEC_ADDR);
 	// CHIP ID = 0x11a0
 
-	//HAL_SAI_Receive_DMA(hsai, pData, Size);
+
+
+
+
 	shell_init(&h_shell);
 	shell_run(&h_shell);
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in cmsis_os2.c) */
-  //MX_FREERTOS_Init();
+  MX_FREERTOS_Init();
 
   /* Start scheduler */
-  //osKernelStart();
+  osKernelStart();
 
   /* We should never get here as control is now taken by the scheduler */
 
@@ -234,6 +257,10 @@ void PeriphCommonClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+/* =====================================================================================
+ * ===================================== CALLBACKS =====================================
+ * =====================================================================================
+ */
 
 /* USER CODE END 4 */
 

@@ -17,6 +17,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_cortex.h \
+ ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dac.h \
+ ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dac_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_exti.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash_ex.h \
@@ -48,9 +50,11 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
- ../Core/Inc/dma.h ../Core/Inc/main.h ../Core/Inc/i2c.h ../Core/Inc/sai.h \
- ../Core/Inc/spi.h ../Core/Inc/usart.h ../Core/Inc/gpio.h \
- ../Core/Inc/components/MCP23S17.h ../Core/Inc/shell.h
+ ../Core/Inc/dac.h ../Core/Inc/main.h ../Core/Inc/dma.h ../Core/Inc/i2c.h \
+ ../Core/Inc/sai.h ../Core/Inc/spi.h ../Core/Inc/usart.h \
+ ../Core/Inc/gpio.h ../Core/Inc/components/MCP23S17.h ../Core/Inc/shell.h \
+ ../Core/Inc/components/wave_generator.h \
+ ../Core/Inc/components/numeric_bypass.h
 ../Core/Inc/main.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../Core/Inc/stm32l4xx_hal_conf.h:
@@ -70,6 +74,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio_ex.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_cortex.h:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dac.h:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dac_ex.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_exti.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash_ex.h:
@@ -102,8 +108,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
-../Core/Inc/dma.h:
+../Core/Inc/dac.h:
 ../Core/Inc/main.h:
+../Core/Inc/dma.h:
 ../Core/Inc/i2c.h:
 ../Core/Inc/sai.h:
 ../Core/Inc/spi.h:
@@ -111,3 +118,5 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/gpio.h:
 ../Core/Inc/components/MCP23S17.h:
 ../Core/Inc/shell.h:
+../Core/Inc/components/wave_generator.h:
+../Core/Inc/components/numeric_bypass.h:

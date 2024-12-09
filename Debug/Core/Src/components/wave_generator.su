@@ -1,0 +1,3 @@
+../Core/Src/components/wave_generator.c:11:6:Triangle_Wave_Start	16	static
+../Core/Src/components/wave_generator.c:36:6:Triangle_Wave_Stop	8	static
+../Core/Src/components/wave_generator.c:42:6:HAL_SAI_TxCpltCallback	16	static
