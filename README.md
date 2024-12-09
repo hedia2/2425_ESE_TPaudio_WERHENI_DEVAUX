@@ -141,6 +141,7 @@ uint16_t getCHIP_ID(uint8_t reg, uint8_t I2C_addr)
    return data;
 }
 ```
+On trouve chipID: 0x3c3c.
 ![image](https://github.com/user-attachments/assets/f6de6307-a58e-4941-812d-c7960a20d894)
 
 ### 3.3 Signaux I2S
