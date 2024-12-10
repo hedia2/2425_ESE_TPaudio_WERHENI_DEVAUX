@@ -20,6 +20,9 @@
 
 void MCP23S17_Init();
 HAL_StatusTypeDef MCP23S17_WriteRegister(uint8_t reg, uint8_t data);
+//void MCP23S17_Init();
+//void MCP23S17_Write(uint8_t reg, uint8_t data);
+void chenillard();
 
 
 #endif /* MCP23S17_H_ */

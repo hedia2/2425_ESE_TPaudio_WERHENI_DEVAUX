@@ -1,2 +1,3 @@
 ../Core/Src/components/MCP23S17.c:6:19:MCP23S17_WriteRegister	1
 ../Core/Src/components/MCP23S17.c:21:6:MCP23S17_Init	1
+../Core/Src/components/MCP23S17.c:29:6:chenillard	2

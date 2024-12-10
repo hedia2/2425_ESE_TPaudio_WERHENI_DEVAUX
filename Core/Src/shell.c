@@ -1,18 +1,19 @@
 #include "shell.h"
 #include <stdio.h>
 #include <string.h>
-
+#include "cmsis_os.h"
 #include "main.h"
 #include "components/MCP23S17.h"
 
 
-
+SemaphoreHandle_t sem_usart1;
 
 static int sh_pins(h_shell_t * h_shell, int argc, char ** argv) {
 
 
 	MCP23S17_Init();
 	MCP23S17_WriteRegister(MCP23S17_GPIOA, 0x00);
+
 	return 0;
 }
 static int sh_status(h_shell_t * h_shell, int argc, char ** argv) {
@@ -104,6 +105,7 @@ void shell_init(h_shell_t * h_shell) {
 	size = snprintf(h_shell->print_buffer, BUFFER_SIZE,
 			"Type 'help' for available commands\r\n");
 	h_shell->drv.transmit(h_shell->print_buffer, size);
+	sem_usart1 = xSemaphoreCreateBinary();
 }
 
 static int shell_exec(h_shell_t * h_shell, char * buf) {

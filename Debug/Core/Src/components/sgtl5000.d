@@ -1,5 +1,5 @@
 Core/Src/components/sgtl5000.o: ../Core/Src/components/sgtl5000.c \
- ../Core/Inc/components/sgtl5000.h ../Core/Inc/shell.h ../Core/Inc/main.h \
+ ../Core/Inc/components/sgtl5000.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h \
  ../Core/Inc/stm32l4xx_hal_conf.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h \
@@ -31,12 +31,11 @@ Core/Src/components/sgtl5000.o: ../Core/Src/components/sgtl5000.c \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
- ../Core/Inc/shell.h ../Core/Inc/drv_uart1.h ../Core/Inc/dma.h \
- ../Core/Inc/main.h ../Core/Inc/i2c.h ../Core/Inc/sai.h ../Core/Inc/spi.h \
+ ../Core/Inc/shell.h ../Core/Inc/main.h ../Core/Inc/shell.h \
+ ../Core/Inc/drv_uart1.h ../Core/Inc/dma.h ../Core/Inc/main.h \
+ ../Core/Inc/i2c.h ../Core/Inc/sai.h ../Core/Inc/spi.h \
  ../Core/Inc/usart.h ../Core/Inc/gpio.h
 ../Core/Inc/components/sgtl5000.h:
-../Core/Inc/shell.h:
-../Core/Inc/main.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../Core/Inc/stm32l4xx_hal_conf.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:
@@ -68,6 +67,8 @@ Core/Src/components/sgtl5000.o: ../Core/Src/components/sgtl5000.c \
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi_ex.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h:
+../Core/Inc/shell.h:
+../Core/Inc/main.h:
 ../Core/Inc/shell.h:
 ../Core/Inc/drv_uart1.h:
 ../Core/Inc/dma.h:

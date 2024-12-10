@@ -24,3 +24,19 @@ void MCP23S17_Init()
 	MCP23S17_WriteRegister(IODIRA, CONFIG);
 	MCP23S17_WriteRegister(IODIRB, CONFIG);
 }
+
+
+void chenillard(void) {
+    // Supposons que vous avez 8 LEDs (A0 à A7 sur le MCP23S17)
+    for (int i = 0; i < 8; i++) {
+        // Allumer la LED correspondante (i)
+    	MCP23S17_WriteRegister(0x12, ~(1 << i)); // Éteindre toutes les autres LEDs
+    	MCP23S17_WriteRegister(0x13, ~(1 << i));
+        printf("LED %d allumée\r\n", i + 1);
+        HAL_Delay(100); // Attendre 100 ms
+
+        // Éteindre la LED actuelle avant de passer à la suivante
+        MCP23S17_WriteRegister(0x12, 0xFF); // Éteindre toutes les LEDs
+    }
+}
+

@@ -6,14 +6,17 @@
  */
 
 #include "drv_uart1.h"
-
+#include "cmsis_os.h"
 #include "usart.h"
 #include "gpio.h"
 
+
+extern SemaphoreHandle_t sem_usart1;
+
 uint8_t drv_uart2_receive(char * pData, uint16_t size)
 {
-	HAL_UART_Receive(&huart2, (uint8_t*)(pData), size, HAL_MAX_DELAY);
-
+	HAL_UART_Receive_IT(&huart2, (uint8_t*)(pData), size);
+	xSemaphoreTake(sem_usart1, portMAX_DELAY);
 	return 0;	// Life's too short for error management
 }
 
