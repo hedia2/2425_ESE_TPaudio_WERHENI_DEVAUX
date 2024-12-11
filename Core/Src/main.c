@@ -82,14 +82,12 @@ uint16_t getCHIP_ID(uint8_t reg, uint8_t I2C_addr)
 {
 	uint16_t data = 0;
 	HAL_StatusTypeDef status;
-
 	status = HAL_I2C_Mem_Read(&hi2c2, I2C_addr, reg, I2C_MEMADD_SIZE_8BIT, &data, 2, HAL_MAX_DELAY);
 	if (status != HAL_OK){
 		return -1;
 	}
 	return data;
 }
-
 
 
 /* USER CODE END 0 */
@@ -150,9 +148,6 @@ int main(void)
 
 	uint16_t chip_ID = getCHIP_ID(CODEC_ID_REG, CODEC_ADDR);
 	// CHIP ID = 0x11a0
-
-
-
 
 
 	shell_init(&h_shell);
@@ -258,10 +253,6 @@ void PeriphCommonClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-/* =====================================================================================
- * ===================================== CALLBACKS =====================================
- * =====================================================================================
- */
 
 /* USER CODE END 4 */
 
