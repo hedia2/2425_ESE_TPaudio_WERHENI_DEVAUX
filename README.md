@@ -168,8 +168,6 @@ Nous allons déclaré La fonction `remplir()` est d'abord appelée pour prépare
 ### 3.4 Génération de signal audio
 
 1. Générez un signal triangulaire.
-   
-3. Vérifier à l’oscilloscope, montrez à l’enseignant.
 
 ![image](https://github.com/user-attachments/assets/b42d7984-89a0-4355-b71d-03552f4121cf)
 
