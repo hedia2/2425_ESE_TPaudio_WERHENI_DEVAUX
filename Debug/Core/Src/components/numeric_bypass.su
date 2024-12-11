@@ -1,0 +1,7 @@
+../Core/Src/components/numeric_bypass.c:17:19:Bypass_Init	24	static
+../Core/Src/components/numeric_bypass.c:38:19:Bypass_Start	8	static
+../Core/Src/components/numeric_bypass.c:61:19:Bypass_Stop	8	static
+../Core/Src/components/numeric_bypass.c:76:13:ProcessHalfBuffer	32	static
+../Core/Src/components/numeric_bypass.c:90:6:HAL_ADC_ConvCpltCallback	16	static
+../Core/Src/components/numeric_bypass.c:98:6:HAL_ADC_ConvHalfCpltCallback	16	static
+../Core/Src/components/numeric_bypass.c:106:9:Bypass_IsRunning	4	static

@@ -87,6 +87,8 @@ void Error_Handler(void);
 
 #define CODEC_ADDR 0x14
 #define CODEC_ID_REG 0x0000
+
+#define SGTL5000_I2C_ADDR 0x14
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

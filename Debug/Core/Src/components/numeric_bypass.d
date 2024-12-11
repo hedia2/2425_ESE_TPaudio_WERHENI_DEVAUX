@@ -19,6 +19,9 @@ Core/Src/components/numeric_bypass.o: \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_cortex.h \
+ ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_adc.h \
+ ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_adc.h \
+ ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_adc_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dac.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dac_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_exti.h \
@@ -34,8 +37,8 @@ Core/Src/components/numeric_bypass.o: \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
- ../Core/Inc/shell.h ../Core/Inc/drv_uart1.h ../Core/Inc/dac.h \
- ../Core/Inc/main.h
+ ../Core/Inc/shell.h ../Core/Inc/drv_uart1.h ../Core/Inc/adc.h \
+ ../Core/Inc/main.h ../Core/Inc/dac.h
 ../Core/Inc/components/numeric_bypass.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
@@ -56,6 +59,9 @@ Core/Src/components/numeric_bypass.o: \
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio_ex.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_cortex.h:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_adc.h:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_adc.h:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_adc_ex.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dac.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dac_ex.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_exti.h:
@@ -73,5 +79,6 @@ Core/Src/components/numeric_bypass.o: \
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h:
 ../Core/Inc/shell.h:
 ../Core/Inc/drv_uart1.h:
-../Core/Inc/dac.h:
+../Core/Inc/adc.h:
 ../Core/Inc/main.h:
+../Core/Inc/dac.h:

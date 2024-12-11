@@ -1,7 +1,8 @@
 Core/Src/components/wave_generator.o: \
  ../Core/Src/components/wave_generator.c \
- ../Core/Inc/components/wave_generator.h ../Core/Inc/sai.h \
- ../Core/Inc/main.h ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h \
+ ../Core/Inc/components/wave_generator.h \
+ ../Core/Inc/components/sgtl5000.h ../Core/Inc/shell.h ../Core/Inc/main.h \
+ ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h \
  ../Core/Inc/stm32l4xx_hal_conf.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h \
@@ -19,6 +20,9 @@ Core/Src/components/wave_generator.o: \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_cortex.h \
+ ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_adc.h \
+ ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_adc.h \
+ ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_adc_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dac.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dac_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_exti.h \
@@ -34,9 +38,12 @@ Core/Src/components/wave_generator.o: \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
- ../Core/Inc/shell.h ../Core/Inc/drv_uart1.h
+ ../Core/Inc/shell.h ../Core/Inc/drv_uart1.h ../Core/Inc/dma.h \
+ ../Core/Inc/main.h ../Core/Inc/i2c.h ../Core/Inc/sai.h ../Core/Inc/spi.h \
+ ../Core/Inc/usart.h ../Core/Inc/gpio.h
 ../Core/Inc/components/wave_generator.h:
-../Core/Inc/sai.h:
+../Core/Inc/components/sgtl5000.h:
+../Core/Inc/shell.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../Core/Inc/stm32l4xx_hal_conf.h:
@@ -56,6 +63,9 @@ Core/Src/components/wave_generator.o: \
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio_ex.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_cortex.h:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_adc.h:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_adc.h:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_adc_ex.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dac.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dac_ex.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_exti.h:
@@ -73,3 +83,10 @@ Core/Src/components/wave_generator.o: \
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h:
 ../Core/Inc/shell.h:
 ../Core/Inc/drv_uart1.h:
+../Core/Inc/dma.h:
+../Core/Inc/main.h:
+../Core/Inc/i2c.h:
+../Core/Inc/sai.h:
+../Core/Inc/spi.h:
+../Core/Inc/usart.h:
+../Core/Inc/gpio.h:

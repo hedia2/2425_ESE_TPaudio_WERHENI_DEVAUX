@@ -1,2 +1,6 @@
-../Core/Src/components/sgtl5000.c:6:26:SGTL5000_WriteReg	1
-../Core/Src/components/sgtl5000.c:21:19:SGTL5000_Init	11
+../Core/Src/components/sgtl5000.c:8:19:sgtl5000_WriteReg	1
+../Core/Src/components/sgtl5000.c:23:19:sgtl5000_init	1
+../Core/Src/components/sgtl5000.c:168:19:sgtl5000_initADCDMA	1
+../Core/Src/components/sgtl5000.c:316:26:sgtl5000_i2c_read_register	3
+../Core/Src/components/sgtl5000.c:339:26:sgtl5000_i2c_set_bit	2
+../Core/Src/components/sgtl5000.c:356:26:sgtl5000_i2c_clear_bit	2
