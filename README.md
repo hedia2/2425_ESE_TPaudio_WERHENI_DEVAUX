@@ -30,7 +30,7 @@ Nous allons définir une fonction de tâche FreeRTOS appelée TAskFonction, qui 
 
 ![image](https://github.com/user-attachments/assets/950b6061-a6b1-4969-accd-1bb7749f3c25)
 
-## (b) En mode interruption, :
+## (b) En mode interruption (version branch Heidia2)
 
 Nous allons utulisé Un sémaphore de type FreeRTOS (sem_usart1) est utilisé pour signaler à une tâche en attente que la réception des données est terminée. Ceci est réalisé grâce à la fonction xSemaphoreGiveFromISR, qui est spécialement conçue pour être utilisée dans un contexte d'interruption.
 
@@ -39,7 +39,7 @@ Nous allons utulisé Un sémaphore de type FreeRTOS (sem_usart1) est utilisé po
 ![image](https://github.com/user-attachments/assets/945f865d-7bf4-49c7-84a5-5e730f569b08)
 
 
-## (c) Avec un driver sous forme de structure:
+## (c) Avec un driver sous forme de structure (version branch main)
 
 On utilise un driver pour faire marché le shell, plus particulierement pour la transmission et la réception de donnée par UART (UART2 intégré à la ST-LINK). Ci-dessous les fonction principales du driver (vous pouvez retrouver le code complet dans la paire de fichier drv_uart1.h/drv_uart1.c):
 ```
@@ -162,12 +162,20 @@ Ci-dessous, une exemple de trame I2C (avec le SDA en jaune et le SCL en vert):
 ### 3.3 Signaux I2S
 
 Nous allons déclaré La fonction `remplir()` est d'abord appelée pour préparer les données à transmettre. Ensuite, `HAL_SAI_Transmit_DMA` lance la transmission des données depuis le tableau tx_buffer via le périphérique SAI en utilisant le mode DMA. Simultanément, HAL_SAI_Receive_DMA démarre la réception des données dans le tableau rx_buffer en mode DMA. Ces deux opérations permettent de gérer efficacement la transmission et la réception de données audio en parallèle.
-
+Remarque: voir la partir suivante pour une exemple concret de transmission.
 ![image](https://github.com/user-attachments/assets/3e969c36-447b-4556-9333-4534a2a5d881)
+
+```
+void remplir(void) {
+    for (int i = 0; i < 128; i++) {
+        tx_buffer[i] = 0xA0; // Valeur constante (mi-hauteur pour un signal 16 bits non signé)
+    }
+}
+```
 
 ### 3.4 Génération de signal audio
 
-1. Générez un signal triangulaire.
+On génère un signal triangulaire dans le ficiher `wave_generator.c`. Ensuite, on envoie le signal sur la sortie audio (LIN_OUT) du codec en faisant une redirection du SAI vers le LIN_OUT (voir fichier `sglt5000.c`  et le callback `HAL_SAI_TxCpltCallback`. Ci-dessous, le signal triangulaire vu à l'oscilloscope.
 
 ![image](https://github.com/user-attachments/assets/b42d7984-89a0-4355-b71d-03552f4121cf)
 
