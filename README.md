@@ -30,7 +30,7 @@ Nous allons définir une fonction de tâche FreeRTOS appelée TAskFonction, qui 
 
 ![image](https://github.com/user-attachments/assets/950b6061-a6b1-4969-accd-1bb7749f3c25)
 
-## (b) En mode interruption (version branch Heidia2)
+## (b) En mode interruption (Juste cette partie dans version branch Heidia2)
 
 Nous allons utulisé Un sémaphore de type FreeRTOS (sem_usart1) est utilisé pour signaler à une tâche en attente que la réception des données est terminée. Ceci est réalisé grâce à la fonction xSemaphoreGiveFromISR, qui est spécialement conçue pour être utilisée dans un contexte d'interruption.
 
@@ -39,7 +39,7 @@ Nous allons utulisé Un sémaphore de type FreeRTOS (sem_usart1) est utilisé po
 ![image](https://github.com/user-attachments/assets/945f865d-7bf4-49c7-84a5-5e730f569b08)
 
 
-## (c) Avec un driver sous forme de structure (version branch main)
+## (c) Avec un driver sous forme de structure
 
 On utilise un driver pour faire marché le shell, plus particulierement pour la transmission et la réception de donnée par UART (UART2 intégré à la ST-LINK). Ci-dessous les fonction principales du driver (vous pouvez retrouver le code complet dans la paire de fichier drv_uart1.h/drv_uart1.c):
 ```
